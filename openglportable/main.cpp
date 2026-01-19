@@ -54,6 +54,7 @@ void display() {
     cloud(2.3,5.2);
 
  glutSwapBuffers();
+glFlush();
 }
 
 void myInit() {
@@ -70,7 +71,6 @@ int main(int argc, char** argv) {
     myInit();
     glutDisplayFunc(display);
     glutTimerFunc(30, updatePositionCloud, 0);
-    // glutTimerFunc(30, updatePositionRocket, 0);
     glutMainLoop();
     return 0;
 }
