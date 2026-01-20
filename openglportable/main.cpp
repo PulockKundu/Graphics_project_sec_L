@@ -1,13 +1,14 @@
 #include <GL/glut.h>
 #include <math.h>
 float cloudPosX =-2.0f;
-float rocketPosX =3.0f;
+float rocketPosX =3.0f; 
 float rocketPosY =2.0f;
 float rocketSpeedX =0.009f;
 float rocketSpeedY =0.005f;
 
 //cloud part by Pulock
 void circle(float rx, float ry, float cx, float cy) {
+    //circle fnc
     glBegin(GL_POLYGON);
     for (int i=0;i<=360;i++) {
     float angle=3.1416f*i/180;
@@ -77,7 +78,6 @@ void drawRocket(float x, float y){
 
     glPopMatrix();
 }
-
 void moveRocket(int value){
     rocketPosX -=rocketSpeedX;
     rocketPosY +=rocketSpeedY;
@@ -126,7 +126,7 @@ int main(int argc, char** argv) {
     myInit();
     glutDisplayFunc(display);
     glutTimerFunc(30, moveCloud, 0);
-    glutTimerFunc(30, moveRocket, 0);
+    glutTimerFunc(30, moveRocket, 0); 
     glutMainLoop();
     return 0;
 }
