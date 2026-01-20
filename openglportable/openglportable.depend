@@ -74,3 +74,23 @@
 	<GL/glut.h>
 	<math.h>
 
+1768916663 source:c:\users\tahmid\onedrive\desktop\graphics\graphics_project_sec_l\openglportable\main.cpp
+	<windows.h>
+	<GL/glut.h>
+	<stdlib.h>
+	<math.h>
+
+1768902373 c:\users\tahmid\onedrive\desktop\graphics\graphics_project_sec_l\freeglut\include\gl\glut.h
+	"freeglut_std.h"
+
+1768902373 c:\users\tahmid\onedrive\desktop\graphics\graphics_project_sec_l\freeglut\include\gl\freeglut_std.h
+	<windows.h>
+	<EGL/egl.h>
+	<GLES/gl.h>
+	<GLES2/gl2.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
