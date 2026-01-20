@@ -1,10 +1,10 @@
 #include <GL/glut.h>
 #include <math.h>
-float cloudPosX =-2.0f;
-float rocketPosX =3.0f;
-float rocketPosY =2.0f;
-float rocketSpeedX =0.009f;
-float rocketSpeedY =0.005f;
+float cloudPosX =-200.0f;
+float rocketPosX =180.0f;
+float rocketPosY =180.0f;
+float rocketSpeedX =0.9f;
+float rocketSpeedY =0.5f;
 
 double  r=.2,s=.3;
 int i;
@@ -16,57 +16,34 @@ void circle(float rx, float ry, float cx, float cy) {
     glBegin(GL_POLYGON);
 
     for (int i=0;i<=360;i++) {
-
     float angle=3.1416f*i/180;
-
         float x=rx*cosf(angle);
-
         float y=ry*sinf(angle);
-
         glVertex2f((x+cx),(y+cy));
-
     }
-
     glEnd();
-
 }
 
 void cloud(float x, float y) {
 
     glColor3f(1.0,1.0,1.0);
-
        glPushMatrix();
-
    glTranslatef(cloudPosX, 0.0f, 0.0f);
-
-
-
-circle(16.25f, 16.25f, x, y);
-
-circle(15.0f, 11.25f,  x + 15.5f, y);
-circle(15.0f, 13.0f,   x - 15.5f, y);
-
-circle(16.25f, 14.25f, x,          y + 7.5f);
-
-circle(15.0f, 12.5f,   x + 9.25f,   y + 6.25f);
-circle(17.5f, 14.25f,  x - 6.75f,   y + 5.0f);
-circle(17.0f, 13.75f,  x - 8.0f,    y + 3.75f);
-
-
-
+circle(16.25f,16.25f, x, y);
+circle(15.0f, 11.25f, x + 15.5f, y);
+circle(15.0f, 13.0f, x - 15.5f, y);
+circle(16.25f, 14.25f, x,y + 7.5f);
+  circle(15.0f, 12.5f,x + 9.25f,y + 6.25f);
+   circle(17.5f, 14.25f,x - 6.75f,y + 5.0f);
+   circle(17.0f, 13.75f,x - 8.0f,y + 3.75f);
 
     glPopMatrix();
-
 }
 
 void moveCloud(int value) {
-
     cloudPosX +=1.0f;
-
     if(cloudPosX>400.0f) {
-
         cloudPosX=-500.0f;
-
     }
 
     glutPostRedisplay();
@@ -79,17 +56,11 @@ void moveCloud(int value) {
 //Rocket part by Pulock
 
 void drawRocket(float x, float y){
-
     glPushMatrix();
-
     glTranslatef(x, y, 0.0f);
-
     glScalef(40.0f, 40.0f, 1.0f);
-
     glRotatef(70, 0, 0, 1);
-
     glColor3ub(173,214,116);
-
     glBegin(GL_POLYGON);
 
         glVertex2f(-0.4, -0.2);
@@ -145,13 +116,11 @@ void moveRocket(int value){
 
     rocketPosY +=rocketSpeedY;
 
-    if(rocketPosX < -240.0f || rocketPosY > 340.0f){
+    if(rocketPosX <-240.0f){
 
-        rocketPosX =220.0f;
+        rocketPosX =400.0f;
 
-        rocketPosY =120.0f;
-
-
+        rocketPosY = 100.0f;
 
     }
 
@@ -172,29 +141,7 @@ void init()
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 }
-//-----------------------sky------------------------------------------------------------------
 
-//-----------------------cloud-----------------------------------------------------------------
-//void cloud(double x, double y)
-//{
-
-
-  //  glBegin(GL_TRIANGLE_FAN);
-    //    for(i=0;i<360;i++)
-      //  {
-        //    x=x+cos((i*3.14)/180)*r;
-          //  y=y+sin((i*3.14)/180)*r;
-
-            //glVertex2d(x,y);
-
-        //}
-
-
-    //glEnd();
-
-
-
-//}
 void sun(double x, double y)
 {
 
@@ -354,11 +301,14 @@ void display()
 glLoadIdentity();
 //-----------------------sky------------------------------------------------------------------
 glColor3f(0.5f, 0.8f, 0.9f);
-glBegin(GL_QUADS);
-    glVertex2f(-210.0f, -220.0f);
-    glVertex2f( 210.0f, -220.0f);
-    glVertex2f( 210.0f,  310.0f);
-    glVertex2f(-210.0f,  310.0f);
+glBegin(GL_POLYGON);
+     glVertex2f(-210.0f, 310.0f);
+     glVertex2f( 210.0f, 310.0f);
+     glVertex2f( 210.0f, -210.0f);
+     glVertex2f(-210.0f, -210.0f);
+
+
+
 glEnd();
 //-------------------SUN-------------------------
     glColor3ub(255,215,0);
@@ -680,33 +630,21 @@ glPopMatrix();
     wheelAngle += 0.03f;   // speed
 if(wheelAngle > 360)
 {
-
-
     wheelAngle = 0;
 }
-
-    //glutPostRedisplay();
 
     glutSwapBuffers();
     glFlush();
 }
 
-void myInit() {
-    glClearColor(0.0f,0.0f,0.0f,1.0f);
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-    gluOrtho2D(-4.0,4.0,-4.0,7.0);
-    glMatrixMode(GL_MODELVIEW);
-}
 int main(int argc,char *argv[])
 {
     glutInit(&argc,argv);
-    glutInitWindowSize(1920,1080);
+    glutInitWindowSize(1420,820);
     glutInitWindowPosition(10,10);
     glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE);
 
     glutCreateWindow("Graphics Project");
-   // myInit();
     init();
     glutDisplayFunc(display);
     glutTimerFunc(30, moveCloud, 0);
