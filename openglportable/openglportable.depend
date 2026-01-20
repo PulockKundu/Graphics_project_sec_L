@@ -74,3 +74,21 @@
 	<GL/glut.h>
 	<math.h>
 
+1768900905 source:d:\semester 7\final term\computer graphics\project git\graphics_project_sec_l\openglportable\main.cpp
+	<GL/glut.h>
+	<math.h>
+
+1768900905 d:\semester 7\final term\computer graphics\project git\graphics_project_sec_l\freeglut\include\gl\glut.h
+	"freeglut_std.h"
+
+1768900905 d:\semester 7\final term\computer graphics\project git\graphics_project_sec_l\freeglut\include\gl\freeglut_std.h
+	<windows.h>
+	<EGL/egl.h>
+	<GLES/gl.h>
+	<GLES2/gl2.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
