@@ -45,6 +45,8 @@
 			<Add library="opengl32" />
 			<Add library="glu32" />
 			<Add directory="C:/Program Files/CodeBlocks/MinGW/lib" />
+			<Add directory="../freeglut/lib/x64" />
+			<Add directory="../freeglut/lib" />
 		</Linker>
 		<Unit filename="main.cpp" />
 		<Extensions>
